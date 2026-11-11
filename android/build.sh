@@ -17,5 +17,5 @@ java -cp "$BUILD_TOOLS/lib/d8.jar" com.android.tools.r8.D8 --lib "$ANDROID_JAR" 
 cp build/resources.apk build/unsigned.apk
 python3 -c "import zipfile; z=zipfile.ZipFile('build/unsigned.apk','a'); z.write('build/dex/classes.dex','classes.dex'); z.close()"
 "$BUILD_TOOLS/zipalign" -f 4 build/unsigned.apk build/aligned.apk
-java -jar "$BUILD_TOOLS/lib/apksigner.jar" sign --ks "$SIGN_KEYSTORE" --ks-pass env:SIGN_PASSWORD --out build/Panhyeong-Studio-1.0.apk build/aligned.apk
-java -jar "$BUILD_TOOLS/lib/apksigner.jar" verify --verbose build/Panhyeong-Studio-1.0.apk
+java -jar "$BUILD_TOOLS/lib/apksigner.jar" sign --ks "$SIGN_KEYSTORE" --ks-pass env:SIGN_PASSWORD --out build/Panhyeong-Studio-1.1.apk build/aligned.apk
+java -jar "$BUILD_TOOLS/lib/apksigner.jar" verify --verbose build/Panhyeong-Studio-1.1.apk
